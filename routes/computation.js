@@ -1,11 +1,15 @@
 var express=require('express')
-var router=express.Router();
-var randomNumber=Math.floor(Math.random()*100)+1
 
-router.get('/', function(req, res, next) {
-    res.render('computation', { Cr: `Cube root applied to ${randomNumber} is ${Math.cbrt(randomNumber)}` });
-  });
-  
-  module.exports = router;
+var router=express.Router();
+
+router.get('/',(req,res)=>{
+    let randomNumber=Math.floor(Math.random()*100)+1
+    let data=req.query.x
+    console.log(data)
+    res.render('compute',{
+        randSolution:`Cube root applied to ${randomNumber} is ${Math.cbrt(randomNumber)}`,
+        querySolution:`Cube root applied to ${data} is ${Math.cbrt(data)}`
+    })
+})
 
 module.exports=router
