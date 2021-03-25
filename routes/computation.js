@@ -6,7 +6,7 @@ router.get('/',(req,res)=>{
     let randomNumber=Math.floor(Math.random()*100)+1
     let data=req.query.x
     console.log(data)
-    res.render('compute',{
+    res.render('computation',{
         randSolution:`Cube root applied to ${randomNumber} is ${Math.cbrt(randomNumber)}`,
         querySolution:`Cube root applied to ${data} is ${Math.cbrt(data)}`
     })
